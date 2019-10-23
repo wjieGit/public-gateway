@@ -1,0 +1,53 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true #自动根据服务发现为每一个服务创建了一个router，这个router将以服务名开头的请求路径转发到对应的大写名称的服务
+#      routes:
+#        - id: nameRoot
+#          uri: lb://spring-cloud-consul-consumer
+#          predicates:
+#            - Path=/consumer/**
+#          filters:
+#            - StripPrefix=1
+  #      routes:
+#        - id: routes_demo
+#          uri: http://www.baidu.com
+#          predicates:
+#            - Method=GET
+##           通过时间匹配
+#            - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
+#            - Before=2018-01-20T06:06:06+08:00[Asia/Shanghai]
+#            - Between=2018-01-20T06:06:06+08:00[Asia/Shanghai], 2019-01-20T06:06:06+08:00[Asia/Shanghai]
+##           通过cookie匹配，参数(Cookie_name,正则表达式)
+#            - Cookie=ityouknow, kee.e
+##            通过Header属性匹配,参数(Cookie_name,正则表达式)
+#            - Header=X-Request-Id, \d+
+##            通过Host匹配
+#            - Host=**.ityouknow.com
+##            通过请求方式匹配
+#            - Method=GET
+##            通过请求路径匹配
+#            - Path=/foo/{segment}
+##            通过请求参数匹配,参数(请求参数名称[必填],正则表达式[可为空])
+#            - Query=keep, pu.
+##            通过请求ip地址进行匹配,参数(IP地址/子网掩码)
+#            - RemoteAddr=192.168.126.218/24
+##          filters:
+##            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+  application:
+    name: gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: debug
