@@ -7,8 +7,8 @@ pipeline {
        PATH = "${dockerPath}/bin:${env.PATH}:${JAVA_HOME}/bin:${MAVEN_HOME}/bin" //添加了系统环境变量上
        def DEPOSITORY_URL = 'registry.cn-hangzhou.aliyuncs.com'//镜像仓库域名
        def DEPOSITORY_HOST = 'spring-cloud-wjie/gateway'//镜像仓库命名空间
-       def DEPOSITORY_NAME= 'login_name'//镜像仓库登录名
-       def DEPOSITORY_PWD = 'login_pwd'//远程镜像仓库密码
+       def DEPOSITORY_NAME= '1215334983@qq.com'//镜像仓库登录名
+       def DEPOSITORY_PWD = '19911101wj'//远程镜像仓库密码
    }
     stages {
         stage('Checkout') {
