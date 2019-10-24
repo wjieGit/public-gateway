@@ -9,7 +9,4 @@ public class HelloController {
     public String Hello(){
         return "Welcome to Gateway";
     }
-
-
-
 }
