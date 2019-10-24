@@ -37,13 +37,10 @@ pipeline {
             steps {
                 echo 'build and push image'
                 sh '''
-                 docker stop gateway1
-                 docker rm gateway1
-                 docker rmi ${DEPOSITORY_URL}/${DEPOSITORY_HOST}:${Tag}
                  docker login --username=${DEPOSITORY_NAME} --password=${DEPOSITORY_PWD}  ${DEPOSITORY_URL}
                  docker build -t ${DEPOSITORY_URL}/${DEPOSITORY_HOST}:${Tag} .
                  docker push ${DEPOSITORY_URL}/${DEPOSITORY_HOST}:${Tag}
-                 docker run -d -p 8081:8080 --name gateway1 ${DEPOSITORY_URL}/${DEPOSITORY_HOST}:${Tag}
+                 docker rmi ${DEPOSITORY_URL}/${DEPOSITORY_HOST}:${Tag}
                 '''
                 echo 'Deploying'
             }
