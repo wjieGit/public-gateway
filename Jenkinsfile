@@ -43,19 +43,10 @@ pipeline {
                  docker login --username=${DEPOSITORY_NAME} --password=${DEPOSITORY_PWD}  ${DEPOSITORY_URL}
                  docker build -t ${DEPOSITORY_URL}/${DEPOSITORY_HOST}:${Tag} .
                  docker push ${DEPOSITORY_URL}/${DEPOSITORY_HOST}:${Tag}
-                 //docker rmi ${DEPOSITORY_URL}/${DEPOSITORY_HOST}:${Tag}
+                 docker run -d -p 8081:8080 --name gateway1 ${DEPOSITORY_URL}/${DEPOSITORY_HOST}:${Tag}
                 '''
                 echo 'Deploying'
             }
         }
-         stage('run') {
-                    steps {
-                        echo 'run'
-                        sh '''
-                         docker run -d -p 8081:8080 --name gateway1 ${DEPOSITORY_URL}/${DEPOSITORY_HOST}:${Tag}
-                        '''
-                        echo 'run'
-                    }
-                }
     }
 }
