@@ -14,7 +14,7 @@ pipeline {
         stage('Checkout') {
              steps {
                 echo 'Checkout'
-                checkout([$class: 'GitSCM', branches: [[name: '*$Tag']],
+                checkout([$class: 'GitSCM', branches: [[name: '${Tag}']],
                  doGenerateSubmoduleConfigurations: false,
                  extensions: [],
                  submoduleCfg: [],
