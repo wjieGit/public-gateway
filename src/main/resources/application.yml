@@ -45,7 +45,7 @@ eureka:
   client:
     service-url:
 #      defaultZone: http://172.17.0.3:8761/eureka/
-      defaultZone: http://192.168.88.149:8001/
+      defaultZone: http://192.168.88.149:8001/eureka/,http://192.168.88.149:8002/eureka/,http://192.168.88.149:8003/eureka/
   instance:
     prefer-ip-address: true
 logging:
