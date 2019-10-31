@@ -1,7 +1,7 @@
 node-ip-address: 192.168.248.129 #节点/虚拟机ip
 node-port: 8005
 server:
-  port: 8005
+  port: ${node-port}
 spring:
   cloud:
     gateway:
