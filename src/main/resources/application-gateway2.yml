@@ -1,5 +1,10 @@
 node-ip-address: 192.168.248.129 #节点/虚拟机ip
 node-port: 8005
+register:
+  ip-address: 192.168.248.128
+  port1: 8001
+  port2: 8002
+  port3: 8003
 server:
   port: ${node-port}
 spring:
@@ -14,7 +19,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.88.149:8001/eureka/,http://192.168.88.149:8002/eureka/,http://192.168.88.149:8003/eureka/ #内网注册
+      defaultZone: http://${register.ip-address}:${register.port1}/eureka/,http://${register.ip-address}:${register.port2}/eureka/,http://${register.ip-address}:${register.port3}/eureka/ #内网注册
   instance:
     prefer-ip-address: true
     ip-address: ${node-ip-address}
