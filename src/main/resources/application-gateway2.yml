@@ -1,4 +1,4 @@
-node-ip-address: 192.168.248.129 #节点/虚拟机ip
+node-ip-address: 192.168.88.237 #节点/虚拟机ip
 node-port: 8005
 register:
   ip-address: 192.168.88.237
