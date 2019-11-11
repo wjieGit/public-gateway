@@ -24,7 +24,7 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
     /**
      * swagger2默认的url后缀
      */
-    private static final String SWAGGER2URL = "/v2/api-docs";
+    private static final String SWAGGER2URL = "/v2/modify/api-docs";
 
 
     /**
